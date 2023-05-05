@@ -9,38 +9,24 @@ import { Estudiante } from 'src/app/models/estudiante';
 export class DirectivasComponent {
 
   nombre = "Soy componente";
-  numero = 2;
+  numero = 8;
   cantAlumnos : number = 15;
-
-  numero1: number = 15;
-  numero2: number = 65;
-  resultado!: number;
-
-  Calcular(){
-    this.resultado = this.numero1 + this.numero2;
-  }
-
+  nombreAlumno!: String;
+  apellidoAlumno!: String;
+  
+  
   estudianteActual : Estudiante = {
     legajo : 7965,
     nombre : 'Jose Maria',
     apellido : 'Herrera',
-    carrera : 'React',
+    carrera : 'HTML & CSS',
     regular : true,
-    fecha_inscripcion : new Date(2022, 3, 22)
-  }
-
-  estudianteVacio : Estudiante = {
-    legajo : 0,
-    nombre : '',
-    apellido : '',
-    carrera : '',
-    regular : false,
-    fecha_inscripcion : new Date(1900, 1, 1)
+    fecha_inscripcion : new Date(2023, 3, 22)
   }
 
   listaEstudiantes: Estudiante[] = [
     { 
-      legajo : 5898,
+      legajo : 1234,
       nombre : 'Juan Carlos',
       apellido : 'Gutierrez',
       carrera : 'Angular',
@@ -64,7 +50,26 @@ export class DirectivasComponent {
       fecha_inscripcion : new Date(2022, 3, 10)
     },
   ]
-  Agregar(){
-    this.listaEstudiantes.push(this.estudianteVacio)
+
+  AgregarEstudiante(){
+    let estudianteModel : Estudiante = {
+      legajo : 7965,
+      nombre : this.nombreAlumno,
+      apellido : this.apellidoAlumno,
+      carrera : 'ReactJS',
+      regular : true,
+      fecha_inscripcion : new Date(2023, 3, 22)
+    }
+    this.listaEstudiantes.push(this.estudianteActual);
   }
+  numero1!: number; 
+  numero2!: number;
+  resultado! :number;
+
+  Calcular(){
+    this.resultado = this.numero1 + this.numero2;
+  }
+
+  
+
 }

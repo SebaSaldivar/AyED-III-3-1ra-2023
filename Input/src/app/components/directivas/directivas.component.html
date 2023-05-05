@@ -1,4 +1,6 @@
-<h1>Interpolación y Directivas</h1>
+<h1>Componente Directivas</h1>
+
+<h2>Interpolación y Directivas</h2>
 
 <h3>Esta es un interpolación desde mi controlador: {{ nombre }} </h3>
 
@@ -32,8 +34,8 @@
         <td>{{estudiante.nombre}}</td>
         <td>{{estudiante.apellido}}</td>
         <td *ngIf="estudiante.regular">Regular</td>
-        <td *ngIf="!estudiante.regular">Libre</td>
-        <td>{{estudiante.fecha_inscripcion | date }}</td>
+        <td *ngIf="!estudiante.regular">No Regular</td>
+        <td>{{estudiante.fecha_inscripcion | date}}</td>
         <td>{{estudiante.carrera}}</td>
        <!--  <td>
             <span *ngIf="estudiante.carrera === 'Angular' || estudiante.carrera === 'Javascript'">Front-end</span>
@@ -67,51 +69,53 @@
         <h3 *ngSwitchCase=25>Sobrepoblación de alumnos</h3>
         <h3 *ngSwitchDefault>Sin Inscripciones</h3>
       </div>
-<hr>
-<form>
-  <div class="row"> <!-- [(ngModel)] -->
-    <div class="col">
-      <input type="number" [(ngModel)]="numero1" name="numero1" placeholder="numero 1">
-    </div>
-    <div class="col">
-      <input type="number" [(ngModel)]="numero2" name="numero2" placeholder="numero 2">
-    </div>
-    <div class="col">
-      <input type="number" [(ngModel)]="resultado" name="resultado" placeholder="Resultado">
-    </div>
-    <div class="col">
-      <button (click)="Calcular()">Sumar</button>
-    </div>
-  </div>
-</form>
-<hr>
+
+<h3> Directivas bidireccionales</h3>
+
 <form>
   <div class="row">
-    <div class="col">
-      <input type="number" [(ngModel)]="estudianteVacio.legajo" name="legajo" placeholder="Legajo">
+    <div class = "col">
+      <input type="number" [(ngModel)]="estudianteActual.legajo" name="legajo" placeholder="Legajo"> 
     </div>
-    <div class="col">
-      <input type="text" [(ngModel)]="estudianteVacio.nombre" name="nombre" placeholder="nombre">
+    <div class = "col">
+      <input type="text" [(ngModel)]="estudianteActual.nombre" name="nombre" placeholder="Nombre">
     </div>
-    <div class="col">
-      <input type="text" [(ngModel)]="estudianteVacio.apellido" name="apellido" placeholder="apellido">
+    <div class = "col">
+      <input type="text" [(ngModel)]="estudianteActual.apellido" name="apellido" placeholder="Apellido"> 
     </div>
-    <div class="col">
-      <input type="text" [(ngModel)]="estudianteVacio.carrera" name="carrera" placeholder="carrera">
+    <div class = "col">
+      <input type="text" [(ngModel)]="estudianteActual.carrera" name="carrera" placeholder="Carrera"> 
     </div>
-    <div class="col">
-      <input type="checkbox" [(ngModel)]="estudianteVacio.regular" name="regular">Regular
+    <div class = "col">
+      <input type="checkbox" [(ngModel)]="estudianteActual.regular" name="regular"> Regular 
     </div>
-    <div class="col">
-      <input type="date" [(ngModel)]="estudianteVacio.fecha_inscripcion" name="fecha">
+    <div class = "col">
+      <input type="date" [(ngModel)]="estudianteActual.fecha_inscripcion" name="fecha" [value]="estudianteActual.fecha_inscripcion | date:'yyyy-MM-dd'"> 
     </div>
-    <div class="col">
-      <button (click)="Agregar()">Agregar</button>
+    <div class = "col">
+      <button (click)="AgregarEstudiante()">Agregar Alumno</button>  
     </div>
   </div>
 </form>
-<hr>
 <pre>
-  {{ listaEstudiantes | json }}
+  {{listaEstudiantes | json }}
 </pre>
-  
+<hr>
+
+
+<form>
+  <div class="row">
+    <div class = "col">
+      <input type="number" [(ngModel)]="numero1" name="numero1" placeholder="Numero 1"> 
+    </div>
+    <div class = "col">
+      <input type="number" [(ngModel)]="numero2" name="numero2" placeholder="Numero 2"> 
+    </div>
+    <div class = "col">
+      <button (click)="Calcular()">Sumar</button> 
+    </div>
+    <div class = "col">
+      <input type="number" [(ngModel)]="resultado" name="resultado" placeholder="Resultado"> 
+    </div>
+  </div>
+</form>
